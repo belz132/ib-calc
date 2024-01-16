@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Calc</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wrapper" class="container col-3">
+    <div id="themes">
+
+    </div>
+    <div id="screens">
+
+    </div>
+    <div id="buttons">
+      <div id="firstRow" class="row">
+        <button class="col-3" onclick="clearAll()">AC</button>
+        <button class="col-3" onclick="appendToggleSignToScreen()">+/-</button>
+        <button class="col-3" onclick="calculatePercentage()">%</button>
+        <button class="col-3" onclick="appendToDisplay('/')">/</button>
+      </div>
+      <div id="secondRow" class="row">
+        <button class="col-3" onclick="appendToDisplay('7')">7</button>
+        <button class="col-3" onclick="appendToDisplay('8')">8</button>
+        <button class="col-3" onclick="appendToDisplay('9')">9</button>
+        <button class="col-3" onclick="appendToDisplay('*')">*</button>
+      </div>
+      <div id="thirdRow" class="row">
+        <button class="col-3" onclick="appendToDisplay('4')">4</button>
+        <button class="col-3" onclick="appendToDisplay('5')">5</button>
+        <button class="col-3" onclick="appendToDisplay('6')">6</button>
+        <button class="col-3" onclick="appendToDisplay('-')">-</button>        
+      </div>
+      <div id="fourthRow" class="row">
+        <button class="col-3" onclick="appendToDisplay('1')">1</button>
+        <button class="col-3" onclick="appendToDisplay('2')">2</button>
+        <button class="col-3" onclick="appendToDisplay('3')">3</button>
+        <button class="col-3" onclick="appendToDisplay('+')">+</button>        
+      </div>
+      <div id="fifthRow" class="row">
+        <button class="col-3" onclick="appendToDisplay('7')">7</button>
+        <button class="col-3" onclick="appendToDisplay('8')">8</button>
+        <button class="col-3" onclick="appendToDisplay('9')">9</button>
+        <button class="col-3" onclick="appendToDisplay('*')">*</button>        
+      </div>
+    </div>
+  </div>
+
+  <script src="calculator.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
