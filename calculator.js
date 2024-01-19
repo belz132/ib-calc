@@ -1,4 +1,4 @@
-// Themes
+// Toggle Themes
 document.addEventListener("DOMContentLoaded", function() {
     const themeSwitch = document.getElementById("flexSwitchCheckDefault");
     const bodyElement = document.body;
@@ -18,14 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
-// Variables
-let resultDisplay = document.getElementById('result-display');
-let historyDisplay = document.getElementById('history-display');
-let currentNumber = '';
-let previousNumber = '';
-let operation = null;
-let isCalculationPerformed = false; // Flag to track if a calculation was performed
 
 // Input by Clicking Buttons
 document.querySelectorAll('.btn').forEach(button => {
@@ -61,6 +53,7 @@ document.addEventListener('keydown', function(event) {
         switch (event.key) {
             case '+':
                 setOperation('+');
+                break;
             case '-':
                 setOperation('-');
                 break;
@@ -84,30 +77,31 @@ document.addEventListener('keydown', function(event) {
                 break;
             case 'Percentage':
                 calculatePercentage();
-            // Add other cases as needed
+                break;
         }
     }
 });
 
+// Variables
+let resultDisplay = document.getElementById('result-display');
+let historyDisplay = document.getElementById('history-display');
+let currentNumber = '';
+let previousNumber = '';
+let operation = null;
+let isCalculationPerformed = false; // Flag to track if a calculation was performed
+
+// Function to input a number
 function appendNumber(number) {
     if (isCalculationPerformed) {
         currentNumber = '';
         isCalculationPerformed = false;
-        clearHistoryDisplay(); // Clear history display after a calculation when a new number is entered
+        clearHistoryDisplay(); // When a new number is entered after a calculation was just performed, clear history display 
     }
     currentNumber += number;
     updateDisplay();
 }
 
-function clearDisplay() {
-    currentNumber = '';
-    previousNumber = '';
-    operation = null;
-    isCalculationPerformed = false;
-    updateDisplay();
-    clearHistoryDisplay(); // Clearing the history display
-}
-
+// Function to clear only 1 character
 function backspace() {
     if (currentNumber.length === 1 || (isCalculationPerformed && currentNumber === '')) {
         clearDisplay(); // Clear everything if the current number is about to be emptied or a calculation was just performed
@@ -117,6 +111,7 @@ function backspace() {
     }
 }
 
+// Function to input a decimal point
 function appendDecimal() {
     if (!currentNumber.includes('.')) {
         currentNumber += '.';
@@ -124,17 +119,19 @@ function appendDecimal() {
     updateDisplay();
 }
 
+// Function to convert a number to negative or back to positive again
 function makeNegative() {
     if (currentNumber !== '') {
         if (currentNumber.startsWith('-')) {
-            currentNumber = currentNumber.slice(1);
+            currentNumber = currentNumber.slice(1); // convert to positive if it's a negative
         } else {
-            currentNumber = '-' + currentNumber;
+            currentNumber = '-' + currentNumber;    // convert to negative if it's a positive
         }
     }
     updateDisplay();
 }
 
+// Function to calculate a percentaged value of a number
 function calculatePercentage() {
     if (currentNumber !== '') {
         currentNumber = (parseFloat(currentNumber) / 100).toString();
@@ -142,9 +139,10 @@ function calculatePercentage() {
     updateDisplay();
 }
 
+// Function to set the operator
 function setOperation(op) {
-    if (currentNumber === '' && !isCalculationPerformed) return;
-    if (previousNumber !== '' && !isCalculationPerformed) {
+    if (currentNumber === '' && !isCalculationPerformed) return;    // If the screen is empty or there is no prior operation, nothing will happen 
+    if (previousNumber !== '' && !isCalculationPerformed) {         // If there is already an input number or prior operation, execute following codes
         calculateResult();
     }
     operation = op;
@@ -155,11 +153,12 @@ function setOperation(op) {
     updateHistoryDisplay(false);
 }
 
+// Function to calculate the result of the operation. Nothing fancy.
 function calculateResult() {
     let result;
     const prev = parseFloat(previousNumber);
     const current = parseFloat(currentNumber);
-    if (isNaN(prev) || isNaN(current)) return;
+    if (isNaN(prev) || isNaN(current)) return;  // If there is no operand (input number), then nothing will happen
 
     switch (operation) {
         case '+':
@@ -189,18 +188,32 @@ function calculateResult() {
     updateDisplay();
 }
 
+// Function to update the upper, smaller screen
+function updateHistoryDisplay(isResultShown) {
+    if (isResultShown) {
+        historyDisplay.value = `${previousNumber} ${operation} ${currentNumber} =`; // If true, display the operand 1, the operator, the operand 2 and an equal (=) sign 
+    } else {
+        historyDisplay.value = `${previousNumber} ${operation}`;                    // If false, display only operand 1 and the operator
+    }
+}
+
+// Function to clear the upper, smaller screen
+function clearHistoryDisplay() {
+    historyDisplay.value = '';
+}
+
+
+// Function to update the main screen
 function updateDisplay() {
     resultDisplay.value = currentNumber;
 }
 
-function updateHistoryDisplay(isResultShown) {
-    if (isResultShown) {
-        historyDisplay.value = `${previousNumber} ${operation} ${currentNumber} =`;
-    } else {
-        historyDisplay.value = `${previousNumber} ${operation}`;
-    }
-}
-
-function clearHistoryDisplay() {
-    historyDisplay.value = '';
+// Function to clear the main screen
+function clearDisplay() {
+    currentNumber = '';
+    previousNumber = '';
+    operation = null;
+    isCalculationPerformed = false;
+    updateDisplay();
+    clearHistoryDisplay(); // Clearing the history display as well
 }
