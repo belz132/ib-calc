@@ -1,8 +1,76 @@
+/* Center the wrapper vertically and horizontally */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
-  height: 100vh;
-  /*width: 100vh;*/
   display: flex;
   justify-content: center;
   align-items: center;
-  /*border: 3px solid green;*/
+  min-height: 100vh;
+}
+
+/* Light Theme Styles (default) */
+body.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Light Theme Switch Style */
+body.light-theme .form-check-input:checked {
+  background-color: #0d6efd; /* Bootstrap primary color for light theme */
+  border-color: #0d6efd;
+}
+
+/* Dark Theme Switch Style */
+body.dark-theme .form-check-input:checked {
+  background-color: #adb5bd; /* A lighter color for dark theme */
+  border-color: #adb5bd;
+}
+
+
+/* Styles for display elements to ensure visibility in both themes */
+#history-display, #result-display {
+  color: #343a40; /* Ensures text color matches the theme */
+}
+
+/* Additional theming for buttons if needed */
+body.dark-theme #buttons .btn {
+  border-color: #495057;
+}
+
+#wrapper {
+  max-width: 400px;
+  margin: auto;
+}
+
+#history-display {
+  font-size: 0.75rem;
+  height: 40px;
+  text-align: right;
+  margin-bottom: 5px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+#result-display {
+  font-size: 1.25rem;
+  height: 60px;
+  text-align: right;
+  margin-bottom: 5px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+/* Ensure all buttons have the same width and height */
+#buttons .btn {
+  width: 100%; /* Set button width to fill the container */
+  height: 60px; /* Set a fixed height for all buttons */
 }

@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IB Calc</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="wrapper" class="container col-3">
-    <div id="themes">
+    <div id="wrapper">
+        <div id="themes">
+            <div class="form-check form-switch d-flex justify-content-center mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            </div>
+        </div>
+        <div id="screens">
+            <input type="text" id="history-display" class="form-control" disabled>
+            <input type="text" id="result-display" class="form-control" disabled>
+        </div>
+        <div id="buttons">
+            <div class="row gx-2 gy-2">
+                <div class="col-3">
+                    <button class="btn btn-danger" data-value="AC">AC</button>  
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-info" data-value="+/-">+/-</button> 
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-info" data-value="%">%</button> 
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-secondary" data-value="+">+</button> 
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="7">7</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="8">8</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="9">9</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-secondary" data-value="-">-</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="4">4</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="5">5</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="6">6</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-secondary" data-value="x">x</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="1">1</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="2">2</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="3">3</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-secondary" data-value="/">/</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-warning" data-value="C">C</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value="0">0</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" data-value=".">.</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-success" data-value="=">=</button>
+                </div>
+            </div>
 
+        </div>
     </div>
-    <div id="screens">
 
-    </div>
-    <div id="buttons">
-      <div id="firstRow" class="row">
-        <button class="col-3" onclick="clearAll()">AC</button>
-        <button class="col-3" onclick="appendToggleSignToScreen()">+/-</button>
-        <button class="col-3" onclick="calculatePercentage()">%</button>
-        <button class="col-3" onclick="appendToDisplay('/')">/</button>
-      </div>
-      <div id="secondRow" class="row">
-        <button class="col-3" onclick="appendToDisplay('7')">7</button>
-        <button class="col-3" onclick="appendToDisplay('8')">8</button>
-        <button class="col-3" onclick="appendToDisplay('9')">9</button>
-        <button class="col-3" onclick="appendToDisplay('*')">*</button>
-      </div>
-      <div id="thirdRow" class="row">
-        <button class="col-3" onclick="appendToDisplay('4')">4</button>
-        <button class="col-3" onclick="appendToDisplay('5')">5</button>
-        <button class="col-3" onclick="appendToDisplay('6')">6</button>
-        <button class="col-3" onclick="appendToDisplay('-')">-</button>        
-      </div>
-      <div id="fourthRow" class="row">
-        <button class="col-3" onclick="appendToDisplay('1')">1</button>
-        <button class="col-3" onclick="appendToDisplay('2')">2</button>
-        <button class="col-3" onclick="appendToDisplay('3')">3</button>
-        <button class="col-3" onclick="appendToDisplay('+')">+</button>        
-      </div>
-      <div id="fifthRow" class="row">
-        <button class="col-3" onclick="appendToDisplay('7')">7</button>
-        <button class="col-3" onclick="appendToDisplay('8')">8</button>
-        <button class="col-3" onclick="appendToDisplay('9')">9</button>
-        <button class="col-3" onclick="appendToDisplay('*')">*</button>        
-      </div>
-    </div>
-  </div>
-
-  <script src="calculator.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="calculator.js"></script>
 </body>
 </html>
