@@ -173,6 +173,7 @@ function calculateResult() {
         case '/':
             if (current === 0) {
                 alert("Cannot divide by zero");
+                clearDisplay();
                 return;
             }
             result = prev / current;
@@ -201,7 +202,6 @@ function updateHistoryDisplay(isResultShown) {
 function clearHistoryDisplay() {
     historyDisplay.value = '';
 }
-
 
 // Function to update the main screen
 function updateDisplay() {

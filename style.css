@@ -9,68 +9,151 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-/* Light Theme Styles (default) */
+/* Wrapper Styles */
+#wrapper {
+  /*max-width: 400px;*/
+  max-width: 100%;
+  width: 60%;
+  margin: auto;
+}
+
+/* Switch (radio button for themes) Styles */
+.form-check-input {
+  cursor: pointer; /* Change cursor to pointer when hovering over the switch */
+}
+
+/* Display Styles */
+#history-display, #result-display {
+  width: 100%;
+  background-color: #f8f9fa; /* Same background color */
+  border: none; /* Remove borders */
+  color: #343a40; /* Same text color */
+  font-size: 1rem; /* Consistent font size */
+  text-align: right;
+  margin-bottom: 0; /* Remove margin between them */
+  border-radius: 0; /* Optional: remove border-radius if present */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions for display elements */
+}
+
+/* Specific styles for history display */
+#history-display {
+  font-size: 1rem; /* Smaller font size for history */
+  height: 30px; /* Adjust height if necessary */
+  padding-right: 10px; /* Padding for text alignment */
+}
+
+/* Specific styles for result display */
+#result-display {
+  font-size: 1.5rem; /* Larger font size for result */
+  height: 50px; /* Adjust height if necessary */
+  padding-right: 10px; /* Padding for text alignment */
+}
+
+/* Button Styles */
+#buttons .btn {
+  width: 100%;
+  height: 60px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions for buttons */
+}
+
+/* Light Theme Styles */
 body.light-theme {
-  background-color: #fff;
+  background-color: #f0f8ff; /* Lighter background for a 'space-like' feel */
   color: #000;
 }
 
-/* Dark Theme Styles */
-body.dark-theme {
-  background-color: #343a40;
-  color: #fff;
-}
-
-/* Light Theme Switch Style */
+/* Light theme for the Swith (radio button) */
 body.light-theme .form-check-input:checked {
   background-color: #0d6efd; /* Bootstrap primary color for light theme */
   border-color: #0d6efd;
 }
 
-/* Dark Theme Switch Style */
+/* Light Theme for the Screen (both history and result display) */
+body.light-theme #history-display,
+body.light-theme #result-display {
+    background-color: #e0ffff; /* Light cyan for a futuristic look */
+    color: #343a40;
+}
+
+/* Light Theme for the Buttons */
+body.light-theme #buttons .btn {
+  background-color: #e6e6fa; /* Light lavender color for light theme default buttons (btn-light) */
+  color: #343a40; /* Dark Gray for text */
+}
+
+/* Additional Styling for Light Theme Specific Button Types */
+body.light-theme #buttons .btn-info {
+  background-color: #40E0D0; /* Turquoise for light theme btn-info */
+}
+
+body.light-theme #buttons .btn-danger {
+  background-color: #ff6347; /* Tomato Red for light theme btn-danger */
+}
+
+body.light-theme #buttons .btn-secondary {
+  background-color: #d6d8db; /* Light Gray for light theme btn-secondary */
+}
+
+body.light-theme #buttons .btn-warning {
+  background-color: #f0ad4e; /* Light Orange for light theme btn-warning */
+}
+
+body.light-theme #buttons .btn-success {
+  background-color: #2e8b57; /* Light Orange for light theme btn-success */
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #0c0f27; /* Deep space dark blue */
+  color: #fff;
+}
+
+/* Dark theme for the Swith (radio button) */
 body.dark-theme .form-check-input:checked {
-  background-color: #adb5bd; /* A lighter color for dark theme */
-  border-color: #adb5bd;
+  background-color: #6f74dd; /* Nebula-like purple */
+  border-color: #6f74dd;
 }
 
-
-/* Styles for display elements to ensure visibility in both themes */
-#history-display, #result-display {
-  color: #343a40; /* Ensures text color matches the theme */
+/* Dark Theme for the Screen (both history and result display) */
+body.dark-theme #history-display,
+body.dark-theme #result-display {
+    background-color: #1a1b2f; /* Darker shade for screens */
+    color: #9fa8da; /* Soft purple for text, mimicking distant stars */
 }
 
-/* Additional theming for buttons if needed */
+/* Dark Theme for the Buttons */
 body.dark-theme #buttons .btn {
+  background-color: #283593; /* Deep cosmic blue for dark theme default buttons (btn-light) */
+  color: #bbdefb; /* Light blue for text */
   border-color: #495057;
 }
 
-#wrapper {
-  max-width: 400px;
-  margin: auto;
+/* Additional Styling for Dark Theme Specific Button Types */
+body.dark-theme #buttons .btn-info {
+  background-color: #20c997; /* Teal for dark theme btn-info */
+  color: #fafafa; /* Off-White */
 }
 
-#history-display {
-  font-size: 0.75rem;
-  height: 40px;
-  text-align: right;
-  margin-bottom: 5px;
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+body.dark-theme #buttons .btn-danger {
+  background-color: #ff5733; /* Scarlet for dark theme btn-danger */
+  color: #fafafa; /* Off-White */
 }
 
-#result-display {
-  font-size: 1.25rem;
-  height: 60px;
-  text-align: right;
-  margin-bottom: 5px;
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+body.dark-theme #buttons .btn-secondary {
+  background-color: #4b636e; /* Steel Blue for dark theme btn-secondary */
+  color: #fafafa; /* Off-White */
 }
 
-/* Ensure all buttons have the same width and height */
-#buttons .btn {
-  width: 100%; /* Set button width to fill the container */
-  height: 60px; /* Set a fixed height for all buttons */
+body.dark-theme #buttons .btn-warning {
+  background-color: #ffc107; /* Amber for dark theme btn-warning */
+  color: #fafafa; /* Off-White */
 }
+
+body.dark-theme #buttons .btn-success {
+  background-color: #28a745; /* Emerald Green for dark theme btn-success */
+  color: #fafafa; /* Off-White */
+}
+
