@@ -25,31 +25,31 @@ body {
   cursor: pointer; /* Change cursor to pointer when hovering over the switch */
 }
 
-/* Display Styles */
+/* Merged Display Styles */
 #history-display, #result-display {
   width: 100%;
   background-color: #f8f9fa; /* Same background color */
-  border: none; /* Remove borders */
+  border: none; 
   color: #343a40; /* Same text color */
-  font-size: 1rem; /* Consistent font size */
-  text-align: right;
-  margin-bottom: 0; /* Remove margin between them */
-  border-radius: 0; /* Optional: remove border-radius if present */
+  font-size: 1rem; /* Consistent font size. Possible to be overwrite later. */
+  text-align: right; 
+  margin-bottom: 0; 
+  border-radius: 0; 
   transition: background-color 0.3s, color 0.3s; /* Smooth transitions for display elements */
 }
 
 /* Specific styles for history display */
 #history-display {
   font-size: 1rem; /* Smaller font size for history */
-  height: 30px; /* Adjust height if necessary */
-  padding-right: 10px; /* Padding for text alignment */
+  height: 30px; 
+  padding-right: 10px;
 }
 
 /* Specific styles for result display */
 #result-display {
   font-size: 1.5rem; /* Larger font size for result */
-  height: 50px; /* Adjust height if necessary */
-  padding-right: 10px; /* Padding for text alignment */
+  height: 50px; 
+  padding-right: 10px;
 }
 
 /* Button Styles */
